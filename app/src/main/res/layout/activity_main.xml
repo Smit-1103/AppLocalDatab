@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="25"
+    android:orientation="vertical"
+    tools:context=".MainActivity"
+    android:background="#CFD2CF">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0sp"
+        android:layout_weight="9"
+        android:background="@drawable/shape">
+        <TextView
+            android:background="@drawable/shape"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Let's get into the Local Datatbase with Compact !"
+            android:textColor="#EB1D36"
+            android:fontFamily="serif"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:textIsSelectable="true" />
+
+    </LinearLayout>
+    <androidx.constraintlayout.utils.widget.MotionButton
+        android:id="@+id/bsh"
+        android:layout_width="match_parent"
+        android:layout_margin="30sp"
+        android:layout_height="0dp"
+        android:layout_weight="4"
+        android:textSize="20sp"
+        android:background="@drawable/button"
+        android:textColor="#F5EDDC"
+        android:text="SHOW" />
+
+    <androidx.constraintlayout.utils.widget.MotionButton
+        android:id="@+id/bin"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4"
+        android:layout_margin="30sp"
+        android:textSize="20sp"
+        android:background="@drawable/button"
+        android:textColor="#F5EDDC"
+        android:text="INSERT" />
+
+    <androidx.constraintlayout.utils.widget.MotionButton
+        android:id="@+id/bup"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4"
+        android:layout_margin="30sp"
+        android:textSize="20sp"
+        android:background="@drawable/button"
+        android:textColor="#F5EDDC"
+        android:text="UPDATE" />
+
+    <androidx.constraintlayout.utils.widget.MotionButton
+        android:id="@+id/bdel"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4"
+        android:layout_margin="30sp"
+        android:textSize="20sp"
+        android:background="@drawable/button"
+        android:textColor="#F5EDDC"
+        android:text="DELETE" />
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0sp"
+        android:layout_weight="1">
+    </LinearLayout>
+
+
+</LinearLayout>
