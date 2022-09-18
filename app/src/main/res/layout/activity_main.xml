@@ -15,10 +15,10 @@
         android:layout_weight="9"
         android:background="@drawable/shape">
         <TextView
+            android:id="@+id/tv"
             android:background="@drawable/shape"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Let's get into the Local Datatbase with Compact !"
             android:textColor="#EB1D36"
             android:fontFamily="serif"
             android:textAlignment="center"

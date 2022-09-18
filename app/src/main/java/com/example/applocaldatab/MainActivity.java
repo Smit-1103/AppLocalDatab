@@ -5,18 +5,24 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.os.Handler;
+import android.text.Html;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 
-import java.util.logging.Handler;
-
 
 //Local database -- client to client database changes and that's why we use Local database(in assets folder)
 public class MainActivity extends Activity {
+    //for animation
+    TextView tv;
+    String text = "Let's get into the Local Datatbase with Compact !"; // for display the string
+    int i = 0; // for count the letter
+
 Button bsh,bin,bdel,bup;
 private long pressedTime; // for back pressed twice to exit
 
@@ -25,10 +31,14 @@ private long pressedTime; // for back pressed twice to exit
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        tv = findViewById(R.id.tv);
         bsh = findViewById(R.id.bsh);
         bin = findViewById(R.id.bin);
         bdel = findViewById(R.id.bdel);
         bup = findViewById(R.id.bup);
+
+        initialize(text);   //for animation of the text
+
 
         //app run thay to pela ma pelu a run thase nd db check thase
         mySqliteHelper ms = new mySqliteHelper(this); // database che k nai ana mate call karayo class
@@ -66,7 +76,24 @@ private long pressedTime; // for back pressed twice to exit
                 dialog.show();
             }
         });
+
+
     }
+
+    private void initialize(String passed_text) {
+        if(i<= passed_text.length()){
+            String outputSting = ""+passed_text.substring(0,i);
+            tv.setText(Html.fromHtml(outputSting));
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    i++;
+                    initialize(passed_text);
+                }
+            },100);
+        }
+    }
+
     //for back pressed twice to exit
     @Override
     public void onBackPressed() {
@@ -78,4 +105,7 @@ private long pressedTime; // for back pressed twice to exit
         }
         pressedTime = System.currentTimeMillis();
     }
+
+
+
 }
