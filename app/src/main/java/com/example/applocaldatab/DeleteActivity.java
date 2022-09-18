@@ -48,16 +48,21 @@ public class DeleteActivity extends Dialog {
                 catch(Exception e)
                 { }
 
-                int id = Integer.parseInt(etId.getText().toString());
+                try
+                {
+                    int id = Integer.parseInt(etId.getText().toString());
 
-                db.execSQL("delete from mytab where sid=("+id+")");
+                    db.execSQL("delete from mytab where sid=("+id+")");
 
+                    db.close();
 
-                db.close();
-
-                etId.setText("");
-                Toast.makeText(context,"Record Deleted Successfully",Toast.LENGTH_LONG).show();
-
+                    etId.setText("");
+                    Toast.makeText(context,"Record Deleted Successfully",Toast.LENGTH_LONG).show();
+                }
+                catch(Exception e)
+                {
+                    Toast.makeText(context,"Fill the details...",Toast.LENGTH_LONG).show();
+                }
 
             }
         });

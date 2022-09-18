@@ -53,23 +53,26 @@ public class InsertScreen extends Dialog
                 catch(Exception e)
                 { }
 
-                int id = Integer.parseInt(etId.getText().toString());
-                String na = etName.getText().toString();
-                int age = Integer.parseInt(etage.getText().toString());
+                try
+                {
+                    int id = Integer.parseInt(etId.getText().toString());
+                    String na = etName.getText().toString();
+                    int age = Integer.parseInt(etage.getText().toString());
 
-                db.execSQL("insert into mytab values("+id+",'"+na+"',"+age+")");
+                    db.execSQL("insert into mytab values("+id+",'"+na+"',"+age+")");
 
+                    db.close();
 
+                    etId.setText("");
+                    etage.setText("");
+                    etName.setText("");
 
-                db.close();
-
-                etId.setText("");
-                etage.setText("");
-                etName.setText("");
-
-                Toast.makeText(context,"Record INSERTED Successfully",Toast.LENGTH_LONG).show();
-
-
+                    Toast.makeText(context,"Record INSERTED Successfully",Toast.LENGTH_LONG).show();
+                }
+                catch(Exception e)
+                {
+                    Toast.makeText(context,"Fill the details...",Toast.LENGTH_LONG).show();
+                }
             }
         });
         btCan.setOnClickListener(new View.OnClickListener() {

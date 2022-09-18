@@ -49,20 +49,27 @@ public class BottomSheet extends BottomSheetDialog {
                 catch(Exception e)
                 { }
 
+                try
+                {
+                    int id = Integer.parseInt(etId.getText().toString());
+                    String na = etName.getText().toString();
+                    int age = Integer.parseInt(etage.getText().toString());
 
-                int id = Integer.parseInt(etId.getText().toString());
-                String na = etName.getText().toString();
-                int age = Integer.parseInt(etage.getText().toString());
+                    db.execSQL("update mytab set sag = "+age+" , sna = '"+na+"' where sid= "+id);
 
-                db.execSQL("update mytab set sag = "+age+" , sna = '"+na+"' where sid= "+id);
+                    db.close();
 
-                db.close();
+                    etId.setText("");
+                    etage.setText("");
+                    etName.setText("");
 
-                etId.setText("");
-                etage.setText("");
-                etName.setText("");
+                    Toast.makeText(context,"Record Updated Successfully",Toast.LENGTH_LONG).show();
+                }
+                catch(Exception e)
+                {
+                    Toast.makeText(context,"Fill the details...",Toast.LENGTH_LONG).show();
+                }
 
-                Toast.makeText(context,"Record Updated Successfully",Toast.LENGTH_LONG).show();
             }
         });
 
